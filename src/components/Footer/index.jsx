@@ -1,10 +1,11 @@
+import React from "react";
+import "./styles.css";
 import telegram from "./img/telegram.svg";
 import instagram from "./img/instagram.svg";
 import viber from "./img/viber.svg";
 import whatsapp from "./img/whatsapp.svg";
 import vk from "./img/vk.svg";
 import Logo from "../Logo";
-import "./styles.css";
 
 const Footer = () => {
   return (
@@ -14,7 +15,6 @@ const Footer = () => {
           <div className="footer__col">
             <Logo
               className="logo footer__logo"
-              href="#"
               title="Логотип"
               aria-hidden={true}
             />
@@ -22,32 +22,32 @@ const Footer = () => {
           </div>
           <div className="footer__col">
             <nav className="menu-bottom">
-              <a href="/catalogue" className="menu-bottom__item">
+              <a href="#" className="menu-bottom__item">
                 Каталог
               </a>
-              <a href="/catalogue" className="menu-bottom__item">
+              <a href="#" className="menu-bottom__item">
                 Акции
               </a>
-              <a href="/catalogue" className="menu-bottom__item">
+              <a href="#" className="menu-bottom__item">
                 Новости
               </a>
-              <a href="/catalogue" className="menu-bottom__item">
+              <a href="#" className="menu-bottom__item">
                 Отзывы
               </a>
             </nav>
           </div>
           <div className="footer__col">
             <nav className="menu-bottom">
-              <a href="/catalogue" className="menu-bottom__item">
+              <a href="#" className="menu-bottom__item">
                 Оплата и доставка
               </a>
-              <a href="/catalogue" className="menu-bottom__item">
+              <a href="#" className="menu-bottom__item">
                 Часто спрашивают
               </a>
-              <a href="/catalogue" className="menu-bottom__item">
+              <a href="#" className="menu-bottom__item">
                 Обратная связь
               </a>
-              <a href="/catalogue" className="menu-bottom__item">
+              <a href="#" className="menu-bottom__item">
                 Контакты
               </a>
             </nav>
