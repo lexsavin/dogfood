@@ -37,11 +37,7 @@ export const ProductPage = () => {
           <Spinner />
         ) : (
           !errorState && (
-            <Product
-              {...product}
-              setProduct={setProduct}
-              onProductLike={handleProductLike}
-            />
+            <Product {...product} onProductLike={handleProductLike} />
           )
         )}
         {!isLoading && errorState && <NotFound />}

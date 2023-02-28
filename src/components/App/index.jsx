@@ -7,7 +7,7 @@ import Footer from "../Footer";
 import api from "../../utils/api";
 import useDebounce from "../../hooks/useDebounce";
 import { isLiked } from "../../utils/product";
-import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { CatalogPage } from "../../pages/CatalogPage";
 import { ProductPage } from "../../pages/ProductPage";
 import { FaqPage } from "../../pages/FAQPage";
@@ -26,7 +26,6 @@ function App() {
 
   const debounceSearchQuery = useDebounce(searchQuery, 500);
 
-  const navigate = useNavigate();
   const { pathname } = useLocation();
 
   const handleRequest = useCallback(() => {
@@ -66,7 +65,6 @@ function App() {
   }, [debounceSearchQuery]);
 
   const handleFormSubmit = (inputText) => {
-    navigate("/");
     setSearchQuery(inputText);
     handleRequest();
   };
@@ -106,7 +104,10 @@ function App() {
         <Header>
           <>
             <Logo className="logo logo_place_header" href="/" />
-            {!pathname.startsWith("/product") && (
+            {!(
+              pathname.startsWith("/product") ||
+              pathname.startsWith("/favorites")
+            ) && (
               <Search onSubmit={handleFormSubmit} onInput={handleInputChange} />
             )}
           </>

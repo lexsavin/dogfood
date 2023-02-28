@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import CardList from "../../components/CardList";
 import { ContentHeader } from "../../components/ContentHeader";
-import Sort from "../../components/Sort";
 import { CardContext } from "../../context/cardContext";
 
 export const FavoritePage = () => {
@@ -9,7 +8,6 @@ export const FavoritePage = () => {
   return (
     <>
       <ContentHeader title="Избранное" />
-      <Sort />
       <div className="content__cards">
         <CardList cards={favorites} />
       </div>
