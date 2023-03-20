@@ -18,13 +18,20 @@ body {
   margin: 0 auto;
 }
 
-img {
-  max-width: 100%;
+.container_inner {
+  margin-top: 20px;
 }
 
-.content {
-  padding: 20px 0;
-  flex-grow: 1;
+.errorMessage {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: end;
+  color: red;
+  font-size: 12px;
+  align-self: flex-start;
+}
+
+img {
+  max-width: 100%;
 }
 
 .content__sort {

@@ -5,16 +5,18 @@ import { NotFound } from "../../components/NotFound";
 import { Product } from "../../components/Product";
 import Spinner from "../../components/Spinner";
 import { CardContext } from "../../context/cardContext";
+import { UserContext } from "../../context/userContext";
 import { useApi } from "../../hooks/useApi";
 import api from "../../utils/api";
 
 export const ProductPage = () => {
   const { productId } = useParams();
   const { handleLike } = useContext(CardContext);
+  const { token } = useContext(UserContext);
 
   const handleGetProduct = useCallback(
-    () => api.getProductById(productId),
-    [productId]
+    () => api.getProductById(productId, token),
+    [productId, token]
   );
 
   const {
@@ -31,17 +33,21 @@ export const ProductPage = () => {
   }, [product, handleLike, setProduct]);
 
   return (
-    <>
+    <div className="container container_inner">
       <div className="content__cards">
         {isLoading ? (
           <Spinner />
         ) : (
           !errorState && (
-            <Product {...product} onProductLike={handleProductLike} />
+            <Product
+              {...product}
+              setProduct={setProduct}
+              onProductLike={handleProductLike}
+            />
           )
         )}
         {!isLoading && errorState && <NotFound />}
       </div>
-    </>
+    </div>
   );
 };

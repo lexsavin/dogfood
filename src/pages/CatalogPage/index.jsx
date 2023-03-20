@@ -37,7 +37,7 @@ export const CatalogPage = () => {
   const handleChangeSort = (tabId) => setSelectedSort(tabId);
 
   return (
-    <>
+    <div className="container container_inner">
       <Sort
         tabs={tabs}
         selectedSort={selectedSort}
@@ -46,6 +46,6 @@ export const CatalogPage = () => {
       <div className="content__cards">
         <CardList cards={sortedCards} />
       </div>
-    </>
+    </div>
   );
 };

@@ -4,9 +4,12 @@ import { ReactComponent as Save } from "./img/save.svg";
 import truck from "./img/truck.svg";
 import quality from "./img/quality.svg";
 import { calcDiscountPrice, isLiked, createMarkup } from "../../utils/product";
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import { UserContext } from "../../context/userContext";
 import { ContentHeader } from "../ContentHeader";
+import { Rating } from "../Rating";
+import plural from "plural-ru";
+import { FormReview } from "../FormReview";
 
 export const Product = ({
   onProductLike,
@@ -16,16 +19,35 @@ export const Product = ({
   price,
   discount,
   description,
+  reviews,
+  _id,
+  setProduct,
 }) => {
   const { user: currentUser } = useContext(UserContext);
   const discount_price = calcDiscountPrice(price, discount);
   const isLike = isLiked(likes, currentUser?._id);
   const desctiptionHTML = createMarkup(description);
+
+  const ratingCount = useMemo(
+    () =>
+      Math.round(
+        reviews.reduce((acc, r) => (acc = acc + r.rating), 0) / reviews.length
+      ),
+    [reviews]
+  );
+
   return (
     <>
       <ContentHeader title={name}>
         <div>
           <span>Артикул:</span> <b>2388907</b>
+          <Rating rating={ratingCount} />
+          {`${reviews?.length} ${plural(
+            reviews?.length,
+            "отзыв",
+            "отзыва",
+            "отзывов"
+          )}`}
         </div>
       </ContentHeader>
       <div className={s.product}>
@@ -106,6 +128,18 @@ export const Product = ({
           </div>
         </div>
       </div>
+      <ul>
+        {reviews.map((reviewData) => (
+          <li key={reviewData._id}>
+            {reviewData.text} <Rating rating={reviewData.rating} />
+          </li>
+        ))}
+      </ul>
+      <FormReview
+        title={`Отзыв о товаре ${name}`}
+        productId={_id}
+        setProduct={setProduct}
+      />
     </>
   );
 };

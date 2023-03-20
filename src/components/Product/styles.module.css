@@ -171,6 +171,7 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .favorite svg {
@@ -178,7 +179,7 @@
 }
 
 .favoriteActive svg {
-  fill: #000000;
+  fill: #f44336;
 }
 
 @media (max-width: 1000px) {
