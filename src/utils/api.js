@@ -1,62 +1,103 @@
+import { BASE_URL } from "./constants";
+
 const onResponce = (res) => {
   return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
 };
 
 class Api {
-  constructor({ baseUrl, headers }) {
-    this._headers = headers;
+  constructor(baseUrl) {
     this._baseUrl = baseUrl;
   }
 
-  getProductList() {
+  signUp(authorizationData) {
+    return fetch(`${this._baseUrl}/signup`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(authorizationData),
+    }).then(onResponce);
+  }
+
+  signIn(authorizationData) {
+    return fetch(`${this._baseUrl}/signin`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(authorizationData),
+    }).then(onResponce);
+  }
+
+  getProductList(token) {
     return fetch(`${this._baseUrl}/products`, {
-      headers: this._headers,
+      headers: {
+        "content-type": "application/json",
+        Authorization: token,
+      },
     }).then(onResponce);
   }
 
-  getUserInfo() {
+  getUserInfo(token) {
     return fetch(`${this._baseUrl}/users/me`, {
-      headers: this._headers,
+      headers: {
+        "content-type": "application/json",
+        Authorization: token,
+      },
     }).then(onResponce);
   }
 
-  getProductById(idProduct) {
+  getProductById(idProduct, token) {
     return fetch(`${this._baseUrl}/products/${idProduct}`, {
-      headers: this._headers,
+      headers: {
+        "content-type": "application/json",
+        Authorization: token,
+      },
     }).then(onResponce);
   }
 
-  setUserInfo(dataUser) {
+  setUserInfo(dataUser, token) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
-      headers: this._headers,
+      headers: {
+        "content-type": "application/json",
+        Authorization: token,
+      },
       body: JSON.stringify(dataUser),
     }).then(onResponce);
   }
 
-  search(searchQuery) {
-    return fetch(`${this._baseUrl}/products/search?query=${searchQuery}`, {
-      headers: this._headers,
+  createReviewProduct(productId, reviewData, token) {
+    return fetch(`${this._baseUrl}/products/review/${productId}`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        Authorization: token,
+      },
+      body: JSON.stringify(reviewData),
     }).then(onResponce);
   }
 
-  changeLikeProduct(productId, isLike) {
+  search(searchQuery, token) {
+    return fetch(`${this._baseUrl}/products/search?query=${searchQuery}`, {
+      headers: {
+        "content-type": "application/json",
+        Authorization: token,
+      },
+    }).then(onResponce);
+  }
+
+  changeLikeProduct(productId, isLike, token) {
     return fetch(`${this._baseUrl}/products/likes/${productId}`, {
       method: isLike ? "DELETE" : "PUT",
-      headers: this._headers,
+      headers: {
+        "content-type": "application/json",
+        Authorization: token,
+      },
     }).then(onResponce);
   }
 }
 
-const config = {
-  baseUrl: "https://api.react-learning.ru",
-  headers: {
-    "content-type": "application/json",
-    Authorization:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2UxMjdlNjU5Yjk4YjAzOGY3N2IyMTciLCJncm91cCI6Imdyb3VwLTEwIiwiaWF0IjoxNjc1NzU3ODg4LCJleHAiOjE3MDcyOTM4ODh9.mVPNRrlZCjGIngnf2Mi89XsQ6nODRra4y75AcjD3MSk",
-  },
-};
-
-const api = new Api(config);
+const api = new Api(BASE_URL);
 
 export default api;

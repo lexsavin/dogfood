@@ -1,9 +1,9 @@
 import cn from "classnames";
 import "./styles.css";
+import { Button } from "@mui/material";
 
 const Sort = ({ selectedSort, tabs = [], onChangeSort }) => {
   const handleClick = (e, tab) => {
-    e.preventDefault();
     onChangeSort(tab.id);
   };
 
@@ -17,7 +17,22 @@ const Sort = ({ selectedSort, tabs = [], onChangeSort }) => {
           key={tab.id}
           id={tab.id}
         >
-          <a onClick={(e) => handleClick(e, tab)}>{tab.title}</a>
+          <Button
+            sx={{
+              textTransform: "none",
+              fontSize: "14px",
+              lineHeight: "20px",
+              cursor: "pointer",
+              color: selectedSort === tab.id ? "#1a1a1a" : "#7b8e98",
+              "&:hover": {
+                color: "#1a1a1a",
+              },
+            }}
+            onClick={(e) => handleClick(e, tab)}
+            variant="text"
+          >
+            {tab.title}
+          </Button>
         </div>
       ))}
     </div>
