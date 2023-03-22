@@ -7,6 +7,7 @@ import { CardContext } from "../../context/cardContext";
 import { UserContext } from "../../context/userContext";
 import { Button } from "@mui/material";
 import { clearTokenLocalStorage } from "../../utils/token";
+import LiveHelpIcon from "@mui/icons-material/LiveHelp";
 
 function Header({ children }) {
   const { favorites, setCards } = useContext(CardContext);
@@ -49,12 +50,17 @@ function Header({ children }) {
           </div>
           <div className={s.iconsMenu}>
             {token && (
-              <Link className={s.favoritesLink} to="/favorites">
-                <FavoriteIcon />
-                {favorites.length !== 0 && (
-                  <span className={s.iconBubble}>{favorites.length}</span>
-                )}
-              </Link>
+              <>
+                <Link className={s.favoritesLink} to="/favorites">
+                  <FavoriteIcon />
+                  {favorites.length !== 0 && (
+                    <span className={s.iconBubble}>{favorites.length}</span>
+                  )}
+                </Link>
+                <Link className={s.faqLink} to="/faq">
+                  <LiveHelpIcon />
+                </Link>
+              </>
             )}
           </div>
         </div>

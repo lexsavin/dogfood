@@ -35,6 +35,7 @@
 
 .iconsMenu {
   display: flex;
+  gap: 15px;
 }
 
 .favoritesLink {
@@ -42,6 +43,13 @@
   width: 34px;
   height: 34px;
 }
+
+.faqLink {
+  position: relative;
+  width: 34px;
+  height: 34px;
+}
+
 .iconsMenu svg {
   width: 100%;
   height: 100%;
