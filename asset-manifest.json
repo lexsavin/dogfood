@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/dogfood/static/css/main.2ecfa089.css",
+    "main.js": "/dogfood/static/js/main.2279a841.js",
+    "static/media/logo.svg": "/dogfood/static/media/logo.4f9d699de55eb25e196ecc4c87a15a5e.svg",
+    "static/media/quality.svg": "/dogfood/static/media/quality.8eb6560a188790582a8aaddc99e116ea.svg",
+    "static/media/instagram.svg": "/dogfood/static/media/instagram.54cbf40d1b69370b6a2ec029eefc269c.svg",
+    "static/media/vk.svg": "/dogfood/static/media/vk.5a6b12bf142f67e2138c1e6c69952975.svg",
+    "static/media/viber.svg": "/dogfood/static/media/viber.b4234cd18a8ffefb8ebb172506996cea.svg",
+    "static/media/whatsapp.svg": "/dogfood/static/media/whatsapp.51cbd71440eaa90946070b8848c12129.svg",
+    "static/media/ic-notfound.svg": "/dogfood/static/media/ic-notfound.2c252d16f18118d22833d1b995ba0234.svg",
+    "static/media/save.svg": "/dogfood/static/media/save.4ecce3f76a425b9cc334007a294e0108.svg",
+    "static/media/truck.svg": "/dogfood/static/media/truck.ea6acb9f2b133040e9f295fbb9f2a3ab.svg",
+    "static/media/ic-close-input.svg": "/dogfood/static/media/ic-close-input.54db44869b83261dae0b721cf5826a4b.svg",
+    "static/media/favorites.svg": "/dogfood/static/media/favorites.b0f01e21f130b247ffbb029a834e4ef0.svg",
+    "static/media/star.svg": "/dogfood/static/media/star.3c809cd3e36dc4c950d3fcc8aff36982.svg",
+    "static/media/ic-search.svg": "/dogfood/static/media/ic-search.9da1e3f9e0d0d0b38f3c1ac2041e5f49.svg",
+    "static/media/telegram.svg": "/dogfood/static/media/telegram.95a5ca8a1ae0a13c18da2bca3f249bf5.svg",
+    "index.html": "/dogfood/index.html",
+    "main.2ecfa089.css.map": "/dogfood/static/css/main.2ecfa089.css.map",
+    "main.2279a841.js.map": "/dogfood/static/js/main.2279a841.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2ecfa089.css",
+    "static/js/main.2279a841.js"
+  ]
+}
