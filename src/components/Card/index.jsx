@@ -70,7 +70,7 @@ const Card = ({
             </button>
           </div>
 
-          <Link to={`/product/${_id}`} className="card__link">
+          <Link to={`/dogfood/product/${_id}`} className="card__link">
             <img src={pictures} alt={description} className="card__image" />
             <div className="card__desc">
               <span

@@ -43,12 +43,12 @@ function App() {
   const initialPath = location.state?.initialPath;
 
   const isPathNotFound =
-    location.pathname !== "/" &&
-    !location.pathname.startsWith("/product") &&
-    !location.pathname.startsWith("/faq") &&
-    !location.pathname.startsWith("/favorites") &&
-    !location.pathname.startsWith("/login") &&
-    !location.pathname.startsWith("/register");
+    location.pathname !== "/dogfood" &&
+    !location.pathname.startsWith("/dogfood/product") &&
+    !location.pathname.startsWith("/dogfood/faq") &&
+    !location.pathname.startsWith("/dogfood/favorites") &&
+    !location.pathname.startsWith("/dogfood/login") &&
+    !location.pathname.startsWith("/dogfood/register");
 
   const handleRequest = useCallback(() => {
     setIsLoading(true);
@@ -133,12 +133,12 @@ function App() {
       >
         <Header>
           <>
-            <Logo className="logo logo_place_header" href="/" />
+            <Logo className="logo logo_place_header" href="/dogfood" />
             {!(
-              (location.pathname.startsWith("/") && !token) ||
-              location.pathname.startsWith("/product") ||
-              location.pathname.startsWith("/faq") ||
-              location.pathname.startsWith("/favorites")
+              (location.pathname.startsWith("/dogfood") && !token) ||
+              location.pathname.startsWith("/dogfood/product") ||
+              location.pathname.startsWith("/dogfood/faq") ||
+              location.pathname.startsWith("/dogfood/favorites")
             ) && (
               <Search onSubmit={handleFormSubmit} onInput={handleInputChange} />
             )}
@@ -155,19 +155,22 @@ function App() {
               location
             }
           >
-            <Route index element={token ? <CatalogPage /> : <StartPage />} />
             <Route
-              path="/product/:productId"
+              path="/dogfood"
+              element={token ? <CatalogPage /> : <StartPage />}
+            />
+            <Route
+              path="/dogfood/product/:productId"
               element={<ProductPage isLoading={isLoading} />}
             />
-            <Route path="/faq" element={<FaqPage />} />
-            <Route path="/favorites" element={<FavoritePage />} />
-            <Route path="*" element={<NotFoundPage />} />
+            <Route path="/dogfood/faq" element={<FaqPage />} />
+            <Route path="/dogfood/favorites" element={<FavoritePage />} />
+            <Route path="/dogfood/*" element={<NotFoundPage />} />
           </Routes>
           {backgroundLocation && (
             <Routes>
               <Route
-                path="/login"
+                path="/dogfood/login"
                 element={
                   <Modal>
                     <Login />
@@ -175,7 +178,7 @@ function App() {
                 }
               />
               <Route
-                path="/register"
+                path="/dogfood/register"
                 element={
                   <Modal>
                     <Register />

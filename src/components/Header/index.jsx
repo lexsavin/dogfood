@@ -40,7 +40,7 @@ function Header({ children }) {
                   setToken(null);
                   setCurrentUser(null);
                   setCards([]);
-                  navigate("/");
+                  navigate("/dogfood");
                 }}
                 variant="outlined"
               >
@@ -51,13 +51,13 @@ function Header({ children }) {
           <div className={s.iconsMenu}>
             {token && (
               <>
-                <Link className={s.favoritesLink} to="/favorites">
+                <Link className={s.favoritesLink} to="/dogfood/favorites">
                   <FavoriteIcon />
                   {favorites.length !== 0 && (
                     <span className={s.iconBubble}>{favorites.length}</span>
                   )}
                 </Link>
-                <Link className={s.faqLink} to="/faq">
+                <Link className={s.faqLink} to="/dogfood/faq">
                   <LiveHelpIcon />
                 </Link>
               </>

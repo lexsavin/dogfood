@@ -28,7 +28,7 @@ export const Login = () => {
 
   const handleClickRegistrationButton = (e) => {
     e.preventDefault();
-    navigate("/register", {
+    navigate("/dogfood/register", {
       replace: true,
       state: { backgroundLocation: location, initialPath },
     });
@@ -38,7 +38,7 @@ export const Login = () => {
     api.signIn(data).then(({ token }) => {
       setTokenLocalStorage(token);
       setToken(token);
-      navigate("/");
+      navigate("/dogfood");
     });
   };
 

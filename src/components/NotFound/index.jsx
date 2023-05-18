@@ -20,7 +20,7 @@ export const NotFound = ({
             {buttonText}
           </a>
         ) : (
-          <Link to="/" className="btn">
+          <Link to="/dogfood" className="btn">
             {buttonText}
           </Link>
         )}

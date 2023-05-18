@@ -27,7 +27,7 @@ export const Register = () => {
 
   const handleClickLoginButton = (e) => {
     e.preventDefault();
-    navigate("/login", {
+    navigate("/dogfood/login", {
       replace: true,
       state: { backgroundLocation: location, initialPath },
     });

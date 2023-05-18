@@ -27,7 +27,7 @@ export const StartPage = () => {
             borderRadius: "55px",
           }}
           onClick={() =>
-            navigate("/login", {
+            navigate("/dogfood/login", {
               state: {
                 backgroundLocation: location,
                 initialPath: location.pathname,
@@ -46,7 +46,7 @@ export const StartPage = () => {
             borderRadius: "55px",
           }}
           onClick={() =>
-            navigate("/register", {
+            navigate("/dogfood/register", {
               state: {
                 backgroundLocation: location,
                 initialPath: location.pathname,

@@ -2,6 +2,7 @@
   "name": "dogfood",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://lexsavin.github.io/dogfood",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
@@ -20,6 +21,8 @@
     "react-scripts": "5.0.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -44,6 +47,7 @@
     ]
   },
   "devDependencies": {
-    "classnames": "^2.3.2"
+    "classnames": "^2.3.2",
+    "gh-pages": "^5.0.0"
   }
 }

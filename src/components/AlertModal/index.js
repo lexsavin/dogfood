@@ -21,7 +21,7 @@ export function AlertModal({
 
   const handleClose = () => {
     setShowSuccessfulRegistration(false);
-    navigate("/");
+    navigate("/dogfood");
   };
 
   return (
